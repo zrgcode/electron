@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    Well hey there!!!工aaaaaaaaaaaaaaaaaaaaaa
+
+    <button id="baidu">Baidu</button>
+    <button id="qq">QQ</button>
+    <!-- <button id="local-list">打开本地文件local-list.html</button> -->
+</body>
+
+<script>
+    const path = require("path");
+    const electron = require("electron");
+
+    let BrowserWindow = electron.remote.BrowserWindow;
+
+
+    let bilibiliWindow = null;
+    let youtubeWindow = null;
+    let localListWindow = null;
+
+    document.getElementById("baidu").onclick = function() {
+
+        bilibiliWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        })
+
+        bilibiliWindow.loadURL("https://baidu.com/");
+
+        bilibiliWindow.on("close", function() {
+            bilibiliWindow = null;
+
+        })
+    }
+
+    document.getElementById("qq").onclick = function() {
+
+        youtubeWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        })
+
+        youtubeWindow.loadURL("https://qq.com/");
+
+        youtubeWindow.on("close", function() {
+            youtubeWindow = null;
+        })
+    }
+
+    // document.getElementById("local-list").onclick = function() {
+
+    //     localListWindow = new BrowserWindow({
+    //         width: 1000,
+    //         height: 800
+    //     })
+
+    //     localListWindow.loadURL(`file://${__dirname}/local-list.html`);
+
+    //     localListWindow.on("close", function() {
+    //         localListWindow = null;
+    //     })
+    // }
+</script>
+
+</html>
